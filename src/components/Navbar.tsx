@@ -13,7 +13,7 @@ export default function Navbar() {
           href="#top"
           className="text-sm font-medium tracking-tight text-foreground underline-offset-4 hover:underline"
         >
-          Avery Stone
+          Home
         </a>
         <nav className="flex items-center gap-6 text-sm text-neutral-300">
           {navItems.map((item) => (

@@ -6,7 +6,7 @@ export type TechGroup = {
 export const techStack: TechGroup[] = [
   {
     category: "Languages",
-    items: ["TypeScript", "JavaScript", "SQL", "HTML/CSS"],
+    items: ["TypeScript", "JavaScript", "PHP", "Python"],
   },
   {
     category: "Frameworks",

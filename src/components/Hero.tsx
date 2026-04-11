@@ -1,6 +1,6 @@
 const socialLinks = [
-  { label: "GitHub", href: "https://github.com/avery-stone" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/avery-stone" },
+  { label: "GitHub", href: "https://github.com/maxixo" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/usman-oshodi-28326b307/" },
   { label: "X", href: "https://x.com/avery_stone" },
   { label: "Resume", href: "https://example.com/avery-stone-resume.pdf" },
 ];
@@ -20,12 +20,11 @@ export default function Hero() {
       <div className="mx-auto flex min-h-screen max-w-6xl items-center px-8">
         <div className="max-w-3xl pt-20">
           <h1 className="text-6xl font-semibold tracking-tight text-foreground sm:text-7xl md:text-8xl">
-            Avery Stone
+            Usman Oshodi
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-400">
-            Product-minded frontend engineer building calm, durable interfaces for
-            developer tools, data products, and editorial platforms.
-          </p>
+            A full-stack developer with a passion for building scalable and efficient web applications.
+            With expertise in both frontend and backend technologies. </p>
           <div className="mt-8 flex items-center gap-6 text-sm text-neutral-300">
             <a
               href="#work"
