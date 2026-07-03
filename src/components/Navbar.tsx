@@ -2,7 +2,7 @@ const navItems = [
   { label: "Work", href: "#work" },
   { label: "Articles", href: "#articles" },
   { label: "Stack", href: "#stack" },
-  { label: "Contact", href: "mailto:hello@averystone.dev" },
+  { label: "Contact", href: "mailto:hello@oshodiusman.dev" },
 ];
 
 export default function Navbar() {

@@ -1,8 +1,6 @@
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/maxixo" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/usman-oshodi-28326b307/" },
-  { label: "X", href: "https://x.com/avery_stone" },
-  { label: "Resume", href: "https://example.com/avery-stone-resume.pdf" },
 ];
 
 export default function Hero() {

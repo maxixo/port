@@ -15,8 +15,11 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Avery Stone | Developer Portfolio",
+  title: "Oshodi Usman | Developer Portfolio",
   description: "Minimal developer portfolio built with Next.js, Tailwind CSS, and TypeScript.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
