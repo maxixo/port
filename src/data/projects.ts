@@ -64,6 +64,18 @@ export const projects: Project[] = [
     },
   },
   {
+    title: "Blog-cms",
+    description: "A searchable documentation site designed for fast onboarding and clear API examples.",
+    tech: ["MDX", "Next.js", "Algolia", "GitHub Actions"],
+    href: "https://github.com/maxixo/northstar-docs",
+    preview: {
+      eyebrow: "Docs",
+      headline: "Search-first knowledge base",
+      caption: "Structured docs with examples, snippets, and release notes.",
+      accent: "from-violet-300/30 to-fuchsia-500/15",
+    },
+  },
+  {
     title: "MindfulLife",
     description: "A full-stack wellness webapp for daily mood check-ins and journaling — React frontend on Vercel talking to a self-hosted Express + PostgreSQL API with HTTPS, CSRF protection, and rate limiting.",
     tech: ["React", "Vite", "Express", "PostgreSQL", "Prisma"],
@@ -74,18 +86,6 @@ export const projects: Project[] = [
       caption: "One honest check-in a day — moods, journals, and insights.",
       accent: "from-emerald-300/30 to-teal-500/15",
       imageSrc: "https://image.thum.io/get/width/1200/crop/800/https://minder-client.vercel.app",
-    },
-  },
-  {
-    title: "Blog-cms",
-    description: "A searchable documentation site designed for fast onboarding and clear API examples.",
-    tech: ["MDX", "Next.js", "Algolia", "GitHub Actions"],
-    href: "https://github.com/maxixo/northstar-docs",
-    preview: {
-      eyebrow: "Docs",
-      headline: "Search-first knowledge base",
-      caption: "Structured docs with examples, snippets, and release notes.",
-      accent: "from-violet-300/30 to-fuchsia-500/15",
     },
   },
   {
