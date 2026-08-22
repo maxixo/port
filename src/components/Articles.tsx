@@ -1,4 +1,5 @@
 import { articles as fallbackArticles } from "@/data/articles";
+import Reveal from "./Reveal";
 
 type FetchedArticle = {
   title: string;
@@ -88,47 +89,47 @@ export default async function Articles() {
       <div className="mt-12 border-t border-neutral-800">
         {items.map((article) =>
           article.href ? (
-            <a
-              key={article.title}
-              href={article.href}
-              target="_blank"
-              rel="noreferrer"
-              className="group flex flex-col gap-3 border-b border-neutral-800 py-5 transition-colors duration-200 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
-            >
-              <div className="min-w-0">
-                <span className="text-base transition-colors duration-200 group-hover:text-accent text-foreground">
-                  {article.title}
-                </span>
-                {article.tags.length > 0 && (
-                  <span className="mt-1 hidden gap-2 sm:flex">
-                    {article.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full border border-neutral-800 px-2 py-0.5 font-mono text-[10px] text-neutral-500"
-                      >
-                        {t}
-                      </span>
-                    ))}
+            <Reveal key={article.title}>
+              <a
+                href={article.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex flex-col gap-3 border-b border-neutral-800 py-5 transition-colors duration-200 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+              >
+                <div className="min-w-0">
+                  <span className="text-base transition-colors duration-200 group-hover:text-accent text-foreground">
+                    {article.title}
                   </span>
-                )}
-              </div>
-              <span className="flex shrink-0 items-center gap-4 font-mono text-xs text-neutral-500">
-                {article.meta.map((m, i) => (
-                  <span key={i}>{m}</span>
-                ))}
-                <span className="transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent">
-                  →
+                  {article.tags.length > 0 && (
+                    <span className="mt-1 hidden gap-2 sm:flex">
+                      {article.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full border border-neutral-800 px-2 py-0.5 font-mono text-[10px] text-neutral-500"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </span>
+                  )}
+                </div>
+                <span className="flex shrink-0 items-center gap-4 font-mono text-xs text-neutral-500">
+                  {article.meta.map((m, i) => (
+                    <span key={i}>{m}</span>
+                  ))}
+                  <span className="transition-transform duration-200 group-hover:translate-x-1 group-hover:text-accent">
+                    →
+                  </span>
                 </span>
-              </span>
-            </a>
+              </a>
+            </Reveal>
           ) : (
-            <div
-              key={article.title}
-              className="flex cursor-default items-center justify-between gap-6 border-b border-neutral-800 py-5 opacity-60"
-            >
-              <span className="text-base text-foreground">{article.title}</span>
-              <span className="font-mono text-xs text-neutral-500">{article.meta[0]}</span>
-            </div>
+            <Reveal key={article.title}>
+              <div className="flex cursor-default items-center justify-between gap-6 border-b border-neutral-800 py-5 opacity-60">
+                <span className="text-base text-foreground">{article.title}</span>
+                <span className="font-mono text-xs text-neutral-500">{article.meta[0]}</span>
+              </div>
+            </Reveal>
           ),
         )}
       </div>
