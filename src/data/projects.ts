@@ -64,6 +64,19 @@ export const projects: Project[] = [
     },
   },
   {
+    title: "MindfulLife",
+    description: "A full-stack wellness webapp for daily mood check-ins and journaling — React frontend on Vercel talking to a self-hosted Express + PostgreSQL API with HTTPS, CSRF protection, and rate limiting.",
+    tech: ["React", "Vite", "Express", "PostgreSQL", "Prisma"],
+    href: "https://minder-client.vercel.app",
+    preview: {
+      eyebrow: "Full-stack",
+      headline: "Your sanctuary for inner peace",
+      caption: "One honest check-in a day — moods, journals, and insights.",
+      accent: "from-emerald-300/30 to-teal-500/15",
+      imageSrc: "https://image.thum.io/get/width/1200/crop/800/https://minder-client.vercel.app",
+    },
+  },
+  {
     title: "Blog-cms",
     description: "A searchable documentation site designed for fast onboarding and clear API examples.",
     tech: ["MDX", "Next.js", "Algolia", "GitHub Actions"],
