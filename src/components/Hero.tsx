@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/maxixo" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/usman-oshodi-28326b307/" },
+  { label: "Twitter / X", href: "https://x.com/maxi_x_o" },
 ];
 
 const roles = [
