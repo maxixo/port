@@ -1,12 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { projects } from "@/data/projects";
 
 export default function Projects() {
   const [imageFailures, setImageFailures] = useState<Record<string, boolean>>({});
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
+
+  // derive filter chips from the data itself — always in sync
+  const allTech = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const p of projects) for (const t of p.tech) counts.set(t, (counts.get(t) ?? 0) + 1);
+    return [...counts.entries()].sort((a, b) => b[1] - a[1]);
+  }, []);
+
+  const visible = activeFilter
+    ? projects.filter((p) => p.tech.includes(activeFilter))
+    : projects;
 
   const handleImageError = (title: string) => {
     setImageFailures((current) => ({ ...current, [title]: true }));
@@ -22,11 +34,42 @@ export default function Projects() {
           Selected projects
         </h2>
       </div>
-      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-        {projects.map((project) => (
+
+      {/* tech filter bar */}
+      <div className="fade-up mt-8 flex flex-wrap items-center gap-2">
+        <button
+          onClick={() => setActiveFilter(null)}
+          className={`rounded-full border px-3 py-1 font-mono text-xs transition-colors duration-200 ${
+            activeFilter === null
+              ? "border-accent/60 bg-accent/10 text-accent"
+              : "border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-neutral-200"
+          }`}
+        >
+          All ({projects.length})
+        </button>
+        {allTech.map(([tech, count]) => (
+          <button
+            key={tech}
+            onClick={() => setActiveFilter((f) => (f === tech ? null : tech))}
+            className={`rounded-full border px-3 py-1 font-mono text-xs transition-colors duration-200 ${
+              activeFilter === tech
+                ? "border-accent/60 bg-accent/10 text-accent"
+                : "border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-neutral-200"
+            }`}
+          >
+            {tech} ({count})
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+        {visible.map((project, i) => (
           <article
             key={project.title}
-            className="group flex min-h-[360px] flex-col overflow-hidden rounded-[1.75rem] border border-neutral-800 bg-neutral-950/70 transition-all duration-300 hover:-translate-y-1 hover:border-neutral-600"
+            style={{ animationDelay: `${i * 90}ms` }}
+            className={`group fade-up flex min-h-[360px] flex-col overflow-hidden rounded-[1.75rem] border border-neutral-800 bg-neutral-950/70 transition-all duration-300 hover:-translate-y-1 hover:border-neutral-600 ${
+              activeFilter ? "" : ""
+            }`}
           >
             <div className="relative border-b border-neutral-800 p-4">
               <div className="relative overflow-hidden rounded-[1.25rem] border border-neutral-700 bg-neutral-900 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
@@ -77,18 +120,31 @@ export default function Projects() {
               </div>
             </div>
             <div className="flex flex-1 flex-col p-6">
-              <h3 className="text-xl font-medium tracking-tight text-foreground">
-                {project.title}
-              </h3>
+              <div className="flex items-center justify-between gap-4">
+                <h3 className="text-xl font-medium tracking-tight text-foreground">
+                  {project.title}
+                </h3>
+                {/* highlight which tech matches the active filter */}
+                {activeFilter && project.tech.includes(activeFilter) && (
+                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+                    {activeFilter}
+                  </span>
+                )}
+              </div>
               <p className="mt-3 text-sm text-neutral-400">{project.description}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {project.tech.map((item) => (
-                  <span
+                  <button
                     key={item}
-                    className="rounded-full border border-neutral-800 px-3 py-1 font-mono text-xs text-neutral-400"
+                    onClick={() => setActiveFilter(item === activeFilter ? null : item)}
+                    className={`cursor-pointer rounded-full border px-3 py-1 font-mono text-xs transition-colors duration-200 ${
+                      item === activeFilter
+                        ? "border-accent/60 bg-accent/10 text-accent"
+                        : "border-neutral-800 text-neutral-400 hover:border-neutral-500 hover:text-neutral-200"
+                    }`}
                   >
                     {item}
-                  </span>
+                  </button>
                 ))}
               </div>
               <a
@@ -103,6 +159,12 @@ export default function Projects() {
           </article>
         ))}
       </div>
+
+      {visible.length === 0 && (
+        <p className="mt-12 font-mono text-sm text-neutral-500">
+          No projects match this filter yet.
+        </p>
+      )}
     </div>
   );
 }
