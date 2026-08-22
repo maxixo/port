@@ -1,5 +1,6 @@
 import Articles from "../components/Articles";
 import Certifications from "../components/Certifications";
+import Reveal from "../components/Reveal";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Projects from "../components/Projects";
@@ -14,13 +15,19 @@ export default function Home() {
           <Hero />
         </section>
         <section id="work">
-          <Projects />
+          <Reveal>
+            <Projects />
+          </Reveal>
         </section>
         <section id="articles">
-          <Articles />
+          <Reveal>
+            <Articles />
+          </Reveal>
         </section>
         <section id="certifications">
-          <Certifications />
+          <Reveal>
+            <Certifications />
+          </Reveal>
         </section>
         <section id="stack">
           <TechStack />
