@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 
+import Reveal from "./Reveal";
 import { projects } from "@/data/projects";
 
 export default function Projects() {
@@ -63,13 +64,11 @@ export default function Projects() {
       </div>
 
       <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-        {visible.map((project, i) => (
+        {visible.map((project) => (
+          <Reveal key={project.title}>
           <article
             key={project.title}
-            style={{ animationDelay: `${i * 90}ms` }}
-            className={`group fade-up flex min-h-[360px] flex-col overflow-hidden rounded-[1.75rem] border border-neutral-800 bg-neutral-950/70 transition-all duration-300 hover:-translate-y-1 hover:border-neutral-600 ${
-              activeFilter ? "" : ""
-            }`}
+            className={`group flex min-h-[360px] flex-col overflow-hidden rounded-[1.75rem] border border-neutral-800 bg-neutral-950/70 transition-all duration-300 hover:-translate-y-1 hover:border-neutral-600`}
           >
             <div className="relative border-b border-neutral-800 p-4">
               <div className="relative overflow-hidden rounded-[1.25rem] border border-neutral-700 bg-neutral-900 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
@@ -157,6 +156,7 @@ export default function Projects() {
               </a>
             </div>
           </article>
+          </Reveal>
         ))}
       </div>
 
