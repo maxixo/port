@@ -1,4 +1,5 @@
 import Articles from "../components/Articles";
+import Certifications from "../components/Certifications";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Projects from "../components/Projects";
@@ -17,6 +18,9 @@ export default function Home() {
         </section>
         <section id="articles">
           <Articles />
+        </section>
+        <section id="certifications">
+          <Certifications />
         </section>
         <section id="stack">
           <TechStack />
