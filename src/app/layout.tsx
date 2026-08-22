@@ -15,8 +15,22 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Oshodi Usman | Developer Portfolio",
-  description: "Minimal developer portfolio built with Next.js, Tailwind CSS, and TypeScript.",
+  metadataBase: new URL("https://portfolio-maxixo.vercel.app"),
+  title: "Usman Oshodi — Full-Stack Developer",
+  description:
+    "Full-stack developer building scalable web applications with Next.js, TypeScript, and Node.js. Projects, writing, and contact.",
+  openGraph: {
+    title: "Usman Oshodi — Full-Stack Developer",
+    description:
+      "Scalable web apps with Next.js, TypeScript, and Node.js. Projects, writing, and contact.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Usman Oshodi — Full-Stack Developer",
+    description: "Scalable web apps with Next.js, TypeScript, and Node.js.",
+  },
   icons: {
     icon: "/icon.svg",
   },

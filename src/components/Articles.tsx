@@ -12,20 +12,38 @@ export default function Articles() {
         </h2>
       </div>
       <div className="mt-12 border-t border-neutral-800">
-        {articles.map((article) => (
-          <a
-            key={article.title}
-            href={article.href}
-            target="_blank"
-            rel="noreferrer"
-            className="group flex items-center justify-between gap-6 border-b border-neutral-800 py-5 transition-colors duration-200"
-          >
-            <span className="text-base text-foreground transition-colors duration-200 group-hover:text-accent">
-              {article.title}
-            </span>
-            <span className="font-mono text-xs text-neutral-500">{article.date}</span>
-          </a>
-        ))}
+        {articles.map((article) => {
+          const inner = (
+            <>
+              <span className="text-base transition-colors duration-200 group-hover:text-accent text-foreground">
+                {article.title}
+              </span>
+              <span className="flex items-center gap-4 font-mono text-xs text-neutral-500">
+                {article.readTime && <span>{article.readTime}</span>}
+                <span>{article.date}</span>
+              </span>
+            </>
+          );
+          return article.href ? (
+            <a
+              key={article.title}
+              href={article.href}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center justify-between gap-6 border-b border-neutral-800 py-5 transition-colors duration-200"
+            >
+              {inner}
+            </a>
+          ) : (
+            <div
+              key={article.title}
+              title="Coming soon"
+              className="group flex cursor-default items-center justify-between gap-6 border-b border-neutral-800 py-5 opacity-60"
+            >
+              {inner}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
