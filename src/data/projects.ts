@@ -23,7 +23,7 @@ export const projects: Project[] = [
       headline: "Release health at a glance",
       caption: "Incident and adoption metrics across every release train.",
       accent: "from-cyan-400/30 to-sky-500/15",
-      imageSrc: "https://image.thum.io/get/width/1200/crop/800/https://dataworld-client.vercel.app",
+      imageSrc: "/dataworld.jpg",
     },
   },
   {
