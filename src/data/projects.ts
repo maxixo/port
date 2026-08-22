@@ -52,6 +52,19 @@ export const projects: Project[] = [
     },
   },
   {
+    title: "MindfulLife",
+    description: "A full-stack wellness webapp for daily mood check-ins and journaling — React frontend on Vercel talking to a self-hosted Express + PostgreSQL API with HTTPS, CSRF protection, and rate limiting.",
+    tech: ["React", "Vite", "Express", "PostgreSQL", "Prisma"],
+    href: "https://minder-client.vercel.app",
+    preview: {
+      eyebrow: "Full-stack",
+      headline: "Your sanctuary for inner peace",
+      caption: "One honest check-in a day — moods, journals, and insights.",
+      accent: "from-emerald-300/30 to-teal-500/15",
+      imageSrc: "https://image.thum.io/get/width/1200/crop/800/https://minder-client.vercel.app",
+    },
+  },
+  {
     title: "Mern-estate",
     description: "A lightweight internal tool for coordinating rollout checklists across engineering teams.",
     tech: ["Next.js", "tRPC", "SQLite", "Playwright"],
@@ -73,19 +86,6 @@ export const projects: Project[] = [
       headline: "Search-first knowledge base",
       caption: "Structured docs with examples, snippets, and release notes.",
       accent: "from-violet-300/30 to-fuchsia-500/15",
-    },
-  },
-  {
-    title: "MindfulLife",
-    description: "A full-stack wellness webapp for daily mood check-ins and journaling — React frontend on Vercel talking to a self-hosted Express + PostgreSQL API with HTTPS, CSRF protection, and rate limiting.",
-    tech: ["React", "Vite", "Express", "PostgreSQL", "Prisma"],
-    href: "https://minder-client.vercel.app",
-    preview: {
-      eyebrow: "Full-stack",
-      headline: "Your sanctuary for inner peace",
-      caption: "One honest check-in a day — moods, journals, and insights.",
-      accent: "from-emerald-300/30 to-teal-500/15",
-      imageSrc: "https://image.thum.io/get/width/1200/crop/800/https://minder-client.vercel.app",
     },
   },
   {
