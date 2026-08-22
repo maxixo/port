@@ -1,5 +1,3 @@
-import { certificates as extraCerts } from "@/data/certificates";
-
 type Badge = {
   id: string;
   name: string;
@@ -65,14 +63,6 @@ export default async function Certifications() {
       image: b.imageUrl,
       verify: `https://www.credly.com/badges/${b.id}/public_url`,
       source: "credly" as const,
-    })),
-    ...extraCerts.map((c) => ({
-      title: c.title,
-      issuer: c.issuer,
-      date: c.date,
-      image: c.image ?? null,
-      verify: c.verify ?? "",
-      source: "manual" as const,
     })),
   ];
 
