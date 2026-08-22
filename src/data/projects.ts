@@ -61,7 +61,7 @@ export const projects: Project[] = [
       headline: "Your sanctuary for inner peace",
       caption: "One honest check-in a day — moods, journals, and insights.",
       accent: "from-emerald-300/30 to-teal-500/15",
-      imageSrc: "https://image.thum.io/get/width/1200/crop/800/https://minder-client.vercel.app",
+      imageSrc: "/mindfullife.jpg",
     },
   },
   {
