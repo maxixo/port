@@ -1,3 +1,4 @@
+import Reveal from "./Reveal";
 import { techStack } from "@/data/techstack";
 
 export default function TechStack() {
@@ -13,7 +14,8 @@ export default function TechStack() {
       </div>
       <div className="mt-12 space-y-10">
         {techStack.map((group) => (
-          <div key={group.category}>
+          <Reveal key={group.category}>
+          <div>
             <p className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">
               {group.category}
             </p>
@@ -28,6 +30,7 @@ export default function TechStack() {
               ))}
             </div>
           </div>
+          </Reveal>
         ))}
       </div>
     </div>

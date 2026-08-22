@@ -52,6 +52,8 @@ const fmtDate = (iso: string | null) => {
   }
 };
 
+import Reveal from "./Reveal";
+
 export default async function Certifications() {
   const credly = await getCredlyBadges();
 
@@ -84,8 +86,8 @@ export default async function Certifications() {
 
       <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
         {items.map((item) => (
+          <Reveal key={item.verify || item.title}>
           <a
-            key={item.verify || item.title}
             href={item.verify || "#"}
             target="_blank"
             rel="noreferrer"
@@ -118,6 +120,7 @@ export default async function Certifications() {
               <p className="mt-1 font-mono text-[10px] text-neutral-600">{item.date}</p>
             )}
           </a>
+          </Reveal>
         ))}
       </div>
 
