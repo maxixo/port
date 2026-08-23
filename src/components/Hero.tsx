@@ -1,6 +1,12 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import TerminalSandbox from "./TerminalSandbox";
+
+const ParticleBackground = dynamic(() => import("./ParticleBackground"), {
+  ssr: false,
+});
 
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/maxixo" },
@@ -55,8 +61,10 @@ export default function Hero() {
           backgroundSize: "24px 24px",
         }}
       />
-      <div className="mx-auto flex min-h-screen max-w-6xl items-center px-8">
-        <div className="max-w-3xl pt-20">
+      <ParticleBackground />
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl items-center px-8">
+        <div className="grid w-full grid-cols-1 gap-12 pt-20 md:grid-cols-[1.5fr_1fr] md:items-center">
+         <div className="max-w-3xl">
           <p className="fade-up font-mono text-xs uppercase tracking-[0.28em] text-neutral-500" style={{ animationDelay: "0.15s" }}>
             Lagos, Nigeria — available for work
           </p>
@@ -108,6 +116,10 @@ export default function Hero() {
                 {s.label} ↗
               </a>
             ))}
+          </div>
+         </div>
+          <div className="fade-up md:max-w-none" style={{ animationDelay: "1.7s" }}>
+            <TerminalSandbox />
           </div>
         </div>
       </div>
